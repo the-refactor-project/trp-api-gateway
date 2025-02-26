@@ -1,0 +1,5 @@
+dist
+node_modules
+dumps/*
+!dumps/last-dump-date.json
+.env

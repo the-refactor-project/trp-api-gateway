@@ -1,0 +1,35 @@
+{
+  "name": "trp-identities",
+  "version": "1.0.0",
+  "main": "dist/index.js",
+  "scripts": {
+    "build:dev": "tsc -w",
+    "build": "tsc",
+    "start:dev": "node --watch .",
+    "start": "node ."
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "module",
+  "description": "",
+  "devDependencies": {
+    "@eslint/js": "^9.20.0",
+    "@types/cors": "^2.8.17",
+    "@types/express": "^5.0.0",
+    "@types/morgan": "^1.9.9",
+    "eslint": "^9.20.0",
+    "globals": "^15.14.0",
+    "typescript-eslint": "^8.24.0"
+  },
+  "dependencies": {
+    "@supabase/supabase-js": "^2.48.1",
+    "axios": "^1.7.9",
+    "chalk": "^5.4.1",
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.7",
+    "express": "^4.21.2",
+    "http-proxy-middleware": "^3.0.3",
+    "morgan": "^1.10.0"
+  }
+}
