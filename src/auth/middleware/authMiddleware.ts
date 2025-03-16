@@ -1,6 +1,5 @@
 import { User } from "@supabase/supabase-js";
 import { Response, NextFunction } from "express";
-import axiosInstance from "../../client/axios.js";
 import { AuthRequest } from "../types.js";
 import chalk from "chalk";
 import environment from "../../environment.js";

@@ -19,6 +19,9 @@ app.get("/api", (_req, res) => {
 
 app.use(validateApp);
 
+console.log("Apps found in database:");
+console.log(appsData.get());
+
 appsData.get().forEach((appData) => {
   const proxy = createProxyMiddleware({
     target: appData.url,

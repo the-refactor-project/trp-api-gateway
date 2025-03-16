@@ -5,7 +5,6 @@ const environmentVariables = [
   "SUPABASE_URL",
   "SUPABASE_SERVICE_ROLE_KEY",
   "PROMO",
-  "LAUNCH_DELIVERIES_URL",
   "IDENTITIES_URL",
   "ENVIRONMENT",
 ] as const;
@@ -25,7 +24,6 @@ const environment: Record<EnvironmentVariable, string> = {
   SUPABASE_URL: process.env.SUPABASE_URL!,
   SUPABASE_SERVICE_ROLE_KEY: process.env.SUPABASE_SERVICE_ROLE_KEY!,
   PROMO: process.env.PROMO!,
-  LAUNCH_DELIVERIES_URL: process.env.LAUNCH_DELIVERIES_URL!,
   IDENTITIES_URL: process.env.IDENTITIES_URL!,
   ENVIRONMENT: process.env.ENVIRONMENT!,
 };

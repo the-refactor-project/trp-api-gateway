@@ -1,0 +1,35 @@
+name: Deploy
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Set up SSH
+        run: |
+          mkdir -p ~/.ssh
+          echo "${{ secrets.SSH_PRIVATE_KEY }}" > ~/.ssh/github-ci
+          chmod 600 ~/.ssh/github-ci
+          ssh-keyscan -H 207.154.240.145 >> ~/.ssh/known_hosts
+
+      - name: Deploy to droplet
+        run: |
+          ssh -i ~/.ssh/github-ci mariogl@207.154.240.145 << 'EOF'
+            set -ex
+            export NVM_DIR=~/.nvm
+            source ~/.nvm/nvm.sh > /dev/null 2>&1
+            cd /srv/trp-api-gateway
+            git fetch --all
+            git reset --hard origin/main
+            npm ci
+            npm run build
+            pm2 restart --update-env api-gateway || pm2 start npm --name "api-gateway" -- start
+          EOF
